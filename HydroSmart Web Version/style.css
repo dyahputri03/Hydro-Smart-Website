@@ -1,0 +1,278 @@
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e7fff4;
+        }
+
+        img {
+            max-width: 100%; 
+            height: auto;
+        }
+
+        header {
+            display: flex;
+            padding: 0vw;
+        }
+
+        .header-wrapper {
+            background-color: #365340;
+            padding: 0vw; 
+            border-radius: 1vw;
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            margin: 0 10vw;
+            margin-left: 2.5vw;
+        }
+
+        .nav-button {
+            background-color: #D7F0E4;
+            border-radius: 0.8vw;
+            border: none;
+            padding: 0.8vw 1.5vw;
+            color: #131010;
+            font-size: 1.1vw;
+            font-weight: bold;
+            margin: 0 1vw;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-button:hover {
+            background-color: #333;
+            color: #fff;
+        }
+        
+        .nav-button a {
+            text-decoration: none; 
+        }
+
+        .logo-container {
+            padding: 0vw;
+            margin-left: 0vw;
+        }
+
+        .logo {
+            width: 8vw;
+        }
+
+        .content {
+            padding: 2vw;
+            text-align: center;
+        }
+
+        .feature-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1vw;
+        }
+
+        .feature-button-plant {
+            position: relative; 
+            border-radius: 1.5vw;
+            border: 0.4vw solid #548063; 
+            width: 8vw; 
+            height: 8vw; 
+            padding: 2vw; 
+            font-size: 1.5vw;
+            font-weight: bold;
+            margin: 2vw; 
+            transition: background-color 0.3s, color 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; 
+            text-align: center; 
+            background-size: cover; 
+            background-position: center; 
+            line-height: 1.2; 
+        }
+
+        .feature-button-plant span {
+            position: relative;
+            z-index: 1; 
+        }
+
+        .feature-button-plant::after {
+            content: ""; 
+            position: absolute; 
+            top: 2vw;
+            left: 2vw;
+            width: 8vw;
+            height: 8vw;
+            border-radius: 1.5vw;
+            background-color: rgba(255, 255, 255, 1); 
+            transition: opacity 0.3s; 
+            pointer-events: none; 
+            opacity: 0.7; 
+        }
+
+        .feature-button-plant:hover::after {
+            opacity: 0; 
+        }
+
+        .feature-button {
+            background-color: #172623; 
+            border: 0.4vw solid #548063; 
+            border-radius: 1.5vw;
+            padding: 2vw; 
+            color: #ffffff;
+            font-size: 1vw;
+            font-weight: bold;
+            margin: 1vw; 
+            transition: background-color 0.3s, color 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .feature-button:hover {
+            background-color: #548063; 
+            color: #fff;
+        }
+
+        .feature-button i {
+            margin-bottom: 1vw; 
+            font-size: 3.2vw;
+        }
+
+        p {
+            margin-top: 4vw;
+            font-size: 2vw;
+        }
+
+        .container {
+            max-width: 40vw;
+            margin: 5vw auto;
+            padding: 1vw;
+            font-size: 1.5vw;
+            text-align: center;
+            background-color: #f9f9f9;
+            border-radius: 0.8vw;
+            box-shadow: 0 0 0.1vw rgba(0, 0, 0, 0.1);
+        }
+
+        .container-plant {
+            max-width: 60vw;
+            margin: 0 auto;
+            padding: 1.2vw;
+            text-align: left;
+        }
+
+        h1 {
+            font-size: 1vw;
+            margin-bottom: 2vw;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input {
+            margin-bottom: 1vw;
+            padding: 0.8vw;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #29423d;
+            color: #fff;
+            border: none;
+            padding: 1vw 2vw;
+            font-size: 1.4vw;
+            border-radius: 0.5vw;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #548063;
+        }
+
+        .profile-picture {
+            width: 8vw;
+            height: 8vw;
+            border-radius: 50%;
+            margin: 0 auto 2vw;
+            display: block;
+        }
+
+        .profile-info {
+            text-align: center;
+            margin-bottom: 2vw;
+        }
+
+        .profile-info h2 {
+            margin-bottom: 0.5vw;
+            font-size: 1.6vw;
+        }
+
+        .profile-info p {
+            margin: 0;
+            color: #777;
+            font-size: 1.5vw;
+        }
+
+        .logout-button {
+            background-color: #d9534f;
+            color: #fff;
+            border: none;
+            padding: 1vw 1vw;
+            font-size: 1.3vw;
+            border-radius: 0.5vw;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+            text-decoration: none;
+            width: 10vw;
+            text-align: center;
+        }
+
+        .logout-button:hover {
+            background-color: #c9302c; 
+        }
+
+        .plant-image {
+            width: 100vw; 
+            height: 25vw; 
+            object-fit: cover; 
+            margin: 0 auto; 
+            margin-bottom: 2vw;
+            border-radius: 2vw;
+        }
+
+        .plant-name {
+            font-size: 2.5vw; 
+            font-weight: bold;
+            margin-bottom: 1vw;
+            text-align: center; 
+            color: #172623;
+        }
+
+        .section-title {
+            font-size: 1.8vw;
+            font-weight: bold;
+            margin-top: 1vw;
+        }
+
+        .section-content {
+            margin-top: 1vw;
+            font-size: 1.5vw; 
+            line-height: 1.5; 
+            background-color: #f0f0f0; 
+            padding: 1vw 2vw; 
+            border-radius: 1vw; 
+            color: #050505;
+        }
+
+        .section-divider {
+            background-color: #29423d; 
+            margin-top: 3vw;
+            border-radius: 1.5vw;
+            padding: 2vw; 
+            color: #ffffff;
+        }

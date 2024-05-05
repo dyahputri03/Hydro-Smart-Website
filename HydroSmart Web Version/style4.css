@@ -1,0 +1,27 @@
+.error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.login-button {
+    background-color: #4CAF50; 
+    color: #FFFFFF; 
+    padding: 20px 40px;
+    font-size: 26px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+    .login-button a {
+    color: inherit;
+    text-decoration: none;
+    }
+
+.login-button:hover {
+    background-color: #377c39;
+}

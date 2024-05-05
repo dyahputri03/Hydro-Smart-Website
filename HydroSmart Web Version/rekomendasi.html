@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <title>Hydroponic Plant Recommendation</title>
+    <link rel="stylesheet" href="style3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+</head>
+<body>
+    <div class="header-wrapper">
+        <header>
+            <div class="logo-container">
+                <img src="img/logo-putih.png" alt="Logo" class="logo">
+            </div>
+            <div class="nav-container">
+                <a href="home.html" class="nav-button" style="text-decoration: none;">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="alarm.html" class="nav-button" style="text-decoration: none;">
+                    <i class="fas fa-bell"></i>
+                    <span>Notification</span>
+                </a>
+                <a href="profil.php" class="nav-button" style="text-decoration: none;">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </a>
+            </div>
+        </header>
+    </div>
+    <div class="container">
+        <h1>Hydroponic Plant Recommendation</h1>
+        <form id="recommendation-form">
+            <label for="luas_lahan">Luas Lahan (m^2):</label>
+            <input type="number" id="luas_lahan" name="luas_lahan" placeholder="Luas Lahan > 0.05" required><br>
+            
+            <label for="suhu">Suhu (°C):</label>
+            <input type="number" id="suhu" name="suhu" placeholder="Suhu 5 - 30" required><br>
+            
+            <label for="ph">pH:</label>
+            <input type="number" id="ph" name="ph" placeholder="pH 0 - 14" required><br>
+            
+            <label for="kelembapan">Kelembapan (%):</label>
+            <input type="number" id="kelembapan" name="kelembapan" placeholder="Kelembapan 40 - 80" required><br>
+            
+            <label for="penyinaran">Penyinaran (jam):</label>
+            <input type="number" id="penyinaran" name="penyinaran" placeholder="Penyinaran 6 - 18" required><br>
+            
+            <button type="button" onclick="getRecommendation()">Get Recommendation</button>
+        </form>
+
+        <div id="recommendation-result"></div>
+    </div>
+
+    <script>
+        async function getRecommendation() {
+            // Load model
+            const model = await tf.loadLayersModel('./model.json');
+
+            // Dapatkan inputan user
+            const luas_lahan = parseFloat(document.getElementById('luas_lahan').value);
+            const suhu = parseFloat(document.getElementById('suhu').value);
+            const ph = parseFloat(document.getElementById('ph').value);
+            const kelembapan = parseFloat(document.getElementById('kelembapan').value);
+            const penyinaran = parseFloat(document.getElementById('penyinaran').value);
+
+            // Persiapan input data
+            const inputData = tf.tensor2d([[luas_lahan, suhu, ph, kelembapan, penyinaran]]);
+
+            // Prediksi
+            const outputData = model.predict(inputData);
+
+            // Konversi ke array
+            const recommendations = Array.from(outputData.dataSync());
+
+            // Proses output untuk mendapatkan rekomendasi
+            const recommended_plant = getPlantRecommendation(recommendations);
+
+            document.getElementById('recommendation-result').innerHTML = `<h2>Recommended Plant:</h2><p>${recommended_plant}</p>`;
+        }
+
+        function getPlantRecommendation(scores) {
+            const plants = ["Stroberi", "Mawar", "Anggrek", "Sawi", "Selada", "Kangkung", "Bayam", "Tomat", "Cabai", "Mentimun", "Terong", "Daun Bawang", "Melon"];
+            const maxScoreIndex = scores.indexOf(Math.max(...scores));
+            return plants[maxScoreIndex];
+        }
+    </script>
+</body>
+</html>

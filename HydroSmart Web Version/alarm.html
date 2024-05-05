@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+<div class="header-wrapper">
+        <header>
+            <div class="logo-container">
+                <img src="img/logo-putih.png" alt="Logo" class="logo">
+            </div>
+            <div class="nav-container">
+                <a href="home.html" class="nav-button" style="text-decoration: none;">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="alarm.html" class="nav-button" style="text-decoration: none;">
+                    <i class="fas fa-bell"></i>
+                    <span>Notification</span>
+                </a>
+                <a href="profil.php" class="nav-button" style="text-decoration: none;">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </a>
+            </div>
+        </header>
+    </div>
+    <div class="container">
+        <h1>Alarm Clock</h1>
+        <form id="alarmForm" method="post">
+            <label for="alarmTime">Alarm Time:</label>
+            <input type="time" id="alarmTime" name="alarmTime" required>
+            <br>
+            <label for="alarmMessage">Alarm Message:</label>
+            <input type="text" id="alarmMessage" name="alarmMessage" required>
+            <br>
+            <button type="submit">Set Alarm</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("alarmForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const alarmTime = document.getElementById("alarmTime").value;
+            const alarmMessage = document.getElementById("alarmMessage").value;
+
+            setAlarm(alarmTime, alarmMessage);
+        });
+
+        function setAlarm(time, message) {
+            const alarm = new Date();
+            const [hours, minutes] = time.split(":");
+            alarm.setHours(hours);
+            alarm.setMinutes(minutes);
+            alarm.setSeconds(0);
+
+            const now = new Date();
+
+            if (alarm < now) {
+                alarm.setDate(alarm.getDate() + 1);
+            }
+
+            const timeToAlarm = alarm - now;
+
+            alert(`Alarm set for ${time}. Message: ${message}`);
+
+            setTimeout(function() {
+                triggerAlarm(message);
+            }, timeToAlarm);
+        }
+
+        function triggerAlarm(message) {
+            alert(`Alarm: ${message}`);
+        }
+    </script>
+</body>
+</html>

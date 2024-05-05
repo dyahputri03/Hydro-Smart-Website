@@ -1,0 +1,10 @@
+CREATE DATABASE hydro_smart;
+
+USE hydro_smart;
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    PASSWORD VARCHAR(255) NOT NULL
+);

@@ -1,0 +1,160 @@
+body {
+    background-color: #FFFFFF;
+}
+
+img {
+    max-width: 100%; 
+    height: auto;
+}
+
+.left-container {                
+    background-color: #365340;
+    height: 100vh;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5vw; 
+}
+
+.header {                       
+    padding-top: 2vh;
+    padding-left: 10vw;
+}
+
+.welcome-text {
+    padding-left: 10vw;
+    display: flex; 
+    align-items: center; 
+}
+
+form {
+    color: #FFFFFF; 
+}
+
+.input-group {
+    margin-bottom: 0.1vw; 
+    display: flex;
+    flex-direction: column;
+    font-size: 2vw;
+    position: relative; 
+}
+
+.input-group div {
+    padding-left: 15vw; 
+    max-width: 70vw; 
+}
+
+.input-group input {
+    padding: 2vw; 
+    border-radius: 10px; 
+    border: none; 
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25); 
+    width: calc(100% - 4vw); 
+}
+
+.submit-button {         
+    display: flex;
+    margin-left: 25vw;
+    margin-top: 5vh; 
+}
+
+.submit-button button {
+    background-color: #172623; 
+    color: #FFFFFF; 
+    padding: 2vw 10vw;
+    border-radius: 1vw; 
+    border: none; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+}
+
+.submit-button button:hover {
+    background-color: #398036; 
+}
+
+.welcome-text h1 {
+    color: #FFFFFF; 
+    font-size: 2vw; 
+    padding-top: 0vh;
+    padding-left: 1vh;
+    padding-bottom: 5vh;
+}
+
+.welcome-text h2 {
+    color: #FFFFFF; 
+    font-size: 2vw; 
+    padding-top: 0vh;
+    padding-left: 0vh;
+    padding-bottom: 5vh;
+}
+
+.welcome-text .login-link {
+    color: #FFFFFF; 
+    text-decoration: none; 
+    margin-left: 20vw; 
+    font-size: 2vw; 
+    font-style: italic; 
+    padding-bottom: 5vh;
+}
+
+.welcome-text .login-link:hover {
+    text-decoration: underline;
+}
+
+.input-group div {
+        padding-left: 18vw; 
+        max-width: 75vw; 
+        position: relative; 
+}
+
+.right-image {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 55%; 
+        height: 100%;
+        object-fit: cover; 
+    }
+
+.welcome-text .regis-link {
+        color: #FFFFFF; 
+        text-decoration: none; 
+        margin-left: 16vw; 
+        font-size: 2vw; 
+        font-style: italic; 
+        padding-bottom: 5vh;
+}
+
+.welcome-text .regis-link:hover {
+    text-decoration: underline; 
+}
+
+@media only screen and (max-width: 768px) {
+    .left-container {
+        width: 90%; 
+        padding: 3vw; 
+    }
+
+    .welcome-text h1,
+    .welcome-text h2,
+    .welcome-text .login-link,
+    .welcome-text .regis-link {
+        font-size: 3.5vw; 
+        margin-left: 5%; 
+    }
+
+    .submit-button {
+        margin-left: 5%; 
+        margin-top: 3vh; 
+    }
+
+    .input-group div {
+        padding-left: 5%; 
+        max-width: 80%; 
+    }
+
+    .input-group input {
+        padding: 3vw; 
+    }
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <title>Nutrient Calculator</title>
+    <link rel="stylesheet" href="style3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="header-wrapper">
+        <header>
+            <div class="logo-container">
+                <img src="img/logo-putih.png" alt="Logo" class="logo">
+            </div>
+            <div class="nav-container">
+                <a href="home.html" class="nav-button" style="text-decoration: none;">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="alarm.html" class="nav-button" style="text-decoration: none;">
+                    <i class="fas fa-bell"></i>
+                    <span>Notification</span>
+                </a>
+                <a href="profil.php" class="nav-button" style="text-decoration: none;">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </a>
+            </div>
+        </header>
+    </div>
+    <div class="container">
+        <h1>Nutrient Calculator</h1>
+
+        <div class="calculator">
+            <h2>Calculate PPM</h2>
+            <form id="ppm-form">
+                <label for="mass_solute_ppm">Mass Solute (mg)</label>
+                <input type="number" id="mass_solute_ppm" name="mass_solute_ppm" required>
+                
+                <label for="volume_solution_ppm">Volume Solution (liters)</label>
+                <input type="number" id="volume_solution_ppm" name="volume_solution_ppm" required>
+                
+                <button type="button" onclick="calculatePPM()">Calculate PPM</button>
+            </form>
+            <div class="result" id="result_ppm"></div>
+        </div>
+
+        <div class="calculator">
+            <h2>Calculate Mass Solute</h2>
+            <form id="mass-solute-form">
+                <label for="ppm_mass">PPM</label>
+                <input type="number" id="ppm_mass" name="ppm_mass" required>
+                
+                <label for="volume_solution_mass">Volume Solution (liters)</label>
+                <input type="number" id="volume_solution_mass" name="volume_solution_mass" required>
+                
+                <button type="button" onclick="calculateMassSolute()">Calculate Mass Solute</button>
+            </form>
+            <div class="result" id="result_mass"></div>
+        </div>
+
+        <div class="calculator">
+            <h2>Calculate Volume Solution</h2>
+            <form id="volume-solution-form">
+                <label for="ppm_volume">PPM</label>
+                <input type="number" id="ppm_volume" name="ppm_volume" required>
+                
+                <label for="mass_solute_volume">Mass Solute (mg)</label>
+                <input type="number" id="mass_solute_volume" name="mass_solute_volume" required>
+                
+                <button type="button" onclick="calculateVolumeSolution()">Calculate Volume Solution</button>
+            </form>
+            <div class="result" id="result_volume"></div>
+        </div>
+    </div>
+
+    <script>
+        function calculatePPM() {
+            var massSolute = parseFloat(document.getElementById('mass_solute_ppm').value);
+            var volumeSolution = parseFloat(document.getElementById('volume_solution_ppm').value);
+
+            if (!isNaN(massSolute) && !isNaN(volumeSolution) && volumeSolution !== 0) {
+                var ppm = massSolute / volumeSolution;
+                document.getElementById('result_ppm').innerText = "PPM: " + ppm.toFixed(2);
+            } else {
+                document.getElementById('result_ppm').innerText = "Invalid input. Please enter valid numbers.";
+            }
+        }
+
+        function calculateMassSolute() {
+            var ppm = parseFloat(document.getElementById('ppm_mass').value);
+            var volumeSolution = parseFloat(document.getElementById('volume_solution_mass').value);
+
+            if (!isNaN(ppm) && !isNaN(volumeSolution) && ppm !== 0) {
+                var massSolute = ppm * volumeSolution;
+                document.getElementById('result_mass').innerText = "Mass Solute: " + massSolute.toFixed(2) + " mg";
+            } else {
+                document.getElementById('result_mass').innerText = "Invalid input. Please enter valid numbers.";
+            }
+        }
+        function calculateVolumeSolution() {
+            var ppm = parseFloat(document.getElementById('ppm_volume').value);
+            var massSolute = parseFloat(document.getElementById('mass_solute_volume').value);
+
+            if (!isNaN(massSolute) && !isNaN(ppm) && ppm !== 0) {
+                var volumeSolution = massSolute / ppm;
+                document.getElementById('result_volume').innerText = "Volume Solution: " + volumeSolution.toFixed(2) + " liters";
+            } else {
+                document.getElementById('result_volume').innerText = "Invalid input. Please enter valid numbers.";
+            }
+        }
+    </script>
+</body>
+</html>
+
